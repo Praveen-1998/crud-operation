@@ -1,0 +1,72 @@
+<div class="col-md-4 offset-md-4 mt-4">
+    <p *ngIf='message' class="alert alert-success">{{message}}</p>
+    <!-- <h3 class="text-center">Add User!!</h3> -->
+    <form #userForm='ngForm' (ngSubmit)='postUser(userForm)'>
+        <div class="card">
+            <div class="card-header text-center">Please Register</div>
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Name</span>
+                    </div>
+                    <input type="hidden" name="id" #id='ngModel' [(ngModel)]='firebaseService.selectedUser.id'>
+                    <input type="text" name="name" class="form-control" #name='ngModel' ngModel
+                        placeholder="Enter Name..." required minlength="10" maxlength="20"
+                        [(ngModel)]='firebaseService.selectedUser.name'>
+                </div>
+                <div *ngIf='name.invalid && name.touched'>
+                    <div class="text-danger" *ngIf='name.errors.required'>
+                        This field is mandatory
+                    </div>
+                    <div class="text-danger" *ngIf='name.errors.minlength'>
+                        Minimum 10 Characters required
+                    </div>
+                    <div class="text-danger" *ngIf='name.errors.maxlength'>
+                        Maximum 20 characters
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Email</span>
+                </div>
+                <input type="email" name="email" class="form-control" #email='ngModel' ngModel
+                    placeholder="Enter email..." required email [(ngModel)]='firebaseService.selectedUser.email' minlength="10" maxlength="20">
+                </div>
+                <div *ngIf="email.invalid && email.touched">
+                    <p *ngIf='email.errors.required' class="text-danger">This field is mandatory</p>
+                    <p *ngIf='email.errors.minlength || email.errors.maxlength' class="text-danger">
+                      This field accepts minimum 10 characters and maximum 20 characters
+                    </p>
+                    <p *ngIf='email.errors.email' class="text-danger">This field only accepts email</p>
+                  </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Mobile</span>
+                    </div>
+                <input type="tel" name="phno" class="form-control" #phno='ngModel' ngModel
+                    placeholder="Enter mobile number..." required minlength="10" pattern="[789][0-9]{9}"
+                    [(ngModel)]='firebaseService.selectedUser.phno'>
+                </div>
+                <div *ngIf='phno.invalid && phno.touched'>
+                    <div class="text-danger" *ngIf='phno.errors.required'>
+                        This field is mandatory
+                    </div>
+                    <div class="text-danger" *ngIf='phno.errors.minlength'>
+                        Mobile numbermust be atleast 10 digits
+                    </div>
+                    <div class="text-danger" *ngIf='phno.errors.pattern'>
+                        Required pattern doesnot matches
+                    </div>
+                </div>
+                
+            </div>
+            <div class="card-footer">
+                <div class="btn-group float-right">
+            <button type="submit" class="btn btn-outline-success float-right">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

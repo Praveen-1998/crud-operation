@@ -1,0 +1,29 @@
+<div class="container mt-5">
+    <p *ngIf='message' class="alert alert-success">{{message}}</p>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Index</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobileno</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of  firebaseService.users;index as i">
+                <td>{{i+1}}</td>
+                <td>{{user.name | uppercase }}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.phno}}</td>
+                <td>
+                    <button class="btn btn-outline-warning" (click)='updateUser(user)'>Update</button>
+                </td>
+                <td>
+                    <button class="btn btn-outline-danger" (click)='deleteUser(user)'>Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

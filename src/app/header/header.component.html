@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" routerLink="/">Memo/Todo app</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/crud">Crud</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/view-user">View User</a>
+            </li>
+
+            
+        </ul>
+        <!-- <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active" *ngIf="service.isLoggedIn">
+                <a class="nav-link" routerLink="/Home">All Tasks </a>
+            </li>
+            <li class="nav-item active" *ngIf="service.isLoggedIn">
+                <a class="nav-link" routerLink="/create-task">Create new task </a>
+            </li>
+            <li class="nav-item active" *ngIf="service.isLoggedIn">
+                <a class="nav-link" routerLink="/view-task">Particular user task </a>
+            </li>
+            <li class="nav-item active" *ngIf="service.isLoggedIn">
+                <a class="nav-link" routerLink="/expired-task">Expired user task </a>
+            </li>
+
+        </ul>
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0 float-right">
+            <li class="nav-item active" *ngIf="service.isLoggedIn">
+                <form action="/logout" method="post" #form="ngForm">
+                    <button type="submit" class=" btn-dark" (click)="sendLogoutForm1(form)">Logout</button>
+                </form>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0 float-left">
+            <li class="nav-item active" *ngIf="!service.isLoggedIn">
+                <a class="nav-link" routerLink="/login">Login</a>
+            </li>
+            <li class="nav-item active" *ngIf="!service.isLoggedIn">
+                <a class="nav-link" routerLink="/Signup">Register</a>
+            </li>
+        </ul> -->
+    </div>
+</nav>

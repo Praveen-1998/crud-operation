@@ -1,0 +1,65 @@
+<div class="container card mt-5 " style="border: solid 2px;">
+    <form action="" [formGroup]='myForm' (ngSubmit)='submitTask()'>
+        {{myForm.value |json}}
+        <h5 for="">Create Task</h5><br>
+
+        <div class="col row">
+            <input type="hidden" formControlName='id' name='id' class="form-control">
+            <div class="form-group col-md-6 col-sm-6">
+                <label for="">Task Name</label>
+                <input type="text" formControlName='taskName' name='taskName' class="form-control">
+                <div class="alert text-danger" *ngIf='taskName.invalid && taskName.touched'>
+                    <p *ngIf='taskName.errors.required'>*this field is required</p>
+                </div>
+            </div>
+            <div class="form-group col-md-6 col-sm-6">
+                <label for="">Creation TimeStamp</label>
+                <input type="date" formControlName='creationTimestamp' name='creationTimestamp' class="form-control">
+                <div class="alert text-danger" *ngIf='creationTimestamp.invalid && creationTimestamp.touched'>
+                    <p *ngIf='creationTimestamp.errors.required'>*this field is required</p>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col row">
+            <div class="form-group col-md-6 col-sm-6">
+                <label for="">Completion Status</label>
+                <select class="browser-default custom-select" name="completionStatus" formControlName='completionStatus' class="form-control">
+                    <option selected>select a value</option>
+                    <option value="todo">To do</option>
+                    <option value="inprogress">In-Progress</option>
+                    <option value="completed">Completed</option>
+                </select>
+                <div class="alert text-danger" *ngIf='completionStatus.invalid && completionStatus.touched'>
+                    <p *ngIf='completionStatus.errors.required'>*this field is required</p>
+                </div>
+            </div>
+            <div class="form-group col-md-6 col-sm-6">
+                <label for="">Created By</label>
+                <input type="text" formControlName='createdBy' name='createdBy' class="form-control">
+                <div class="alert text-danger" *ngIf='createdBy.invalid && createdBy.touched'>
+                    <p *ngIf='createdBy.errors.required'>*this field is required</p>
+                </div>
+            </div>
+        </div>
+        <div class="col row">
+            <div class="form-group col-md-6 col-sm-6">
+                <label for="">Edit Timestamp</label>
+                <input type="date" formControlName='editTimestamp' name='editTimestamp' class="form-control">
+                <div class="alert text-danger" *ngIf='editTimestamp.invalid && editTimestamp.touched'>
+                    <p *ngIf='editTimestamp.errors.required'>*this field is required</p>
+                </div>
+            </div>
+            <div class="form-group col-md-6 col-sm-6">
+                <label for="">Expiry</label>
+                <input type="date" formControlName='expiry' name='expiry' class="form-control">
+                <div class="alert text-danger" *ngIf='expiry.invalid && expiry.touched'>
+                    <p *ngIf='expiry.errors.required'>*this field is required</p>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline-primary float-right">submit</button>
+
+    </form>
+</div>

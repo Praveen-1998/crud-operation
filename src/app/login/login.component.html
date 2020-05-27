@@ -1,0 +1,26 @@
+<div class="col-md-4 offset-4  card card-body">
+    <form action="" #loginForm="ngForm" (ngSubmit)="sendLogin(loginForm)">
+        <div class="example-container">
+            <h4 class="text-center">Log-In</h4><span  class="text-center"><span class="text-danger text-center">*</span>(please enter registered email and password)</span>
+            <mat-form-field>
+              <input type="email" matInput placeholder="Enter your email"  required email #email="ngModel" name="email" ngModel>
+              <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>         
+        <mat-form-field>
+          <input type="password" matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" #password="ngModel" name="password" password required ngModel minlength="5">              
+          <mat-error *ngIf="password.invalid ">{{getErrorMessage1()}}</mat-error> 
+          <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <div class="alert text-danger" *ngIf='error'>{{error}}</div>
+        </mat-form-field>
+        <button type="submit" color="warn" class="mt-3" mat-raised-button [disabled]="loginForm.invalid">Log In</button>
+    </div>
+    </form>
+  
+  <div class="mt-3">
+    <span>Do not have an account? please... <a href="/Signup">create account</a> </span>
+    <hr>
+      </div>
+</div>

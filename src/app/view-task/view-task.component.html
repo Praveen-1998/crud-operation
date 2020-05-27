@@ -1,0 +1,53 @@
+<div class="container mt-5">
+    <h5>Tasks details of particular user</h5>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Task Name</th>
+                <th scope="col">Creation TimeStamp</th>
+                <th scope="col">Completion Status</th>
+                <th scope="col">Created By</th>
+                <th scope="col">Expiry</th>
+                <th scope="col">Edit Timestamp</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let details of particularUserDetils'>
+                <th scope="row">{{details.taskName}}</th>
+                <td>{{details.creationTimestamp | date:'dd-MM-yyyy'}}</td>
+                <td>{{details.completionStatus}}</td>
+                <td>{{details.createdBy}}</td>
+                <td>{{details.expiry | date:'dd-MM-yyyy'}}</td>
+                <td>{{details.editTimestamp | date:'dd-MM-yyyy'}}</td>
+                <td><button class="btn btn-outline-primary" (click)='editTask(details)'>Edit</button></td>
+                <!-- <td><button class="btn btn-outline-danger" (click) = 'deleteParticularTask(details._id)'>Delete</button></td>-->
+                <td>
+                    <div class="float-right ty-reset-button">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#exampleModal">Delete</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <small>Are you sure you want to delete this clientsdetails?  <span class="text-danger">* and refresh the page</span></small>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit"
+                                            class="btn btn-outline-danger ty-font delete rounded border  border-info"
+                                            data-dismiss="modal"
+                                            (click)="deleteParticularTask(details)">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
